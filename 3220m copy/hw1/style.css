@@ -1,0 +1,79 @@
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        position: sticky;
+        background-color: rgb(255, 255, 255);
+        color: #000;
+      }
+
+      .head-align{
+              text-align: center;
+              font-size: 26px;
+              font-weight: bold;
+              line-height: 1.5;
+      }
+      
+      li {
+        float: left;
+        border-right:1px solid rgb(255, 255, 255);
+        color: #000;
+      }
+      
+      li:last-child {
+        border-right: none;
+      }
+      
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        color: #000;
+      }
+      
+      li a:hover:not(.active) {
+        background-color: rgb(179, 179, 179);
+        color: #000;
+      }
+      
+      .active {
+        background-color: rgb(179, 179, 179);
+        color: #000;
+
+      }
+
+      .bg-light {
+        background: #ccc; }
+
+        .intro-text {
+                font-size: 32px;
+                line-height: 1.5;
+                text-align: center; }
+
+table, th, td {
+
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th{
+ background: gray;
+    color: white
+}
+table {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.header {
+    padding: 40px;
+  text-align: center;
+  background: #111;
+  color: white;
+  font-size: 15px;
+}
+/* W3School was a website used to reference code.
+
