@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--	Author: Mike OKane
-		Date:	August 15, 2007
-		File:	arrays1.php
-		Purpose:PHP Practice
--->
+<!--	Used course sample code array1.php as reference code -->
 <html>
 <head>
 	<title>Scores Report</title>
