@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <!--	Used course sample code array1.php as reference code -->
 <html>
 <head>
@@ -7,6 +8,7 @@
 </head>
 <body>
 	<h1>Scores report </h1>
+	<!--- first table ---->
 <table>
 	<?php
 		$rows   = $_POST['rows'];
@@ -29,7 +31,7 @@
         echo "<tr> </tr>";
         for($j = 0; $j < $columns; $j++)
         {
-           $d[$i][$j] = rand($min,$max); 
+           $d[$i][$j] = number_format(rand($min,$max), 3); 
            $element = $d[$i][$j];
            echo "<td> $element </td> ";
             
@@ -46,7 +48,7 @@
 	
 	?>
 	</table>
-	
+	<!--- Second table ---->
 	<table>
     <tr>
 	    <th> Row </th>
@@ -58,7 +60,10 @@
 	    <?php
         for($i = 0; $i < $rows; $i++)
         {
-            
+             $sum = 0;
+            $FD = 0;
+            $FD2 = 0;
+            $FD3 = 0;
             /* iteration for rows */
             echo "<tr> </tr>";
             echo "<td> $i </td>";
@@ -66,21 +71,26 @@
             {
                 /*  does calculations for table */
                 $number = $d[$i][$j];
-                $sum = $sum + $number;
+                $sum = $sum + number_format($number, 3);
                 $average = $sum / $columns;
+                $FD = $number - $average;
+                $FD2 = pow($FD,2);
+                $FD3 = $FD3 + $FD2;
+                $Mos = (1 / $columns) * $FD3;
+                $SD = sqrt($Mos);
+                    
                 /*SD equation looks scary so i will do later */
-                $SD = 5;
                 
-               
-                 
                 
-            }
+           }
+           
             /* displays the calculations */
-                echo "<td> $sum </td>";
-                echo "<td> $average </td>";
-                echo "<td> $SD </td>";
+                
+            echo "<td> ".number_format($sum,3)." </td>";
+            echo "<td> ".number_format($average,3)." </td>";
+            echo "<td> ".number_format($SD,3)." </td>";
             // resets calculations for next row
-            $sum = 0;
+           
             $average = 0;
             $SD = 0;
            
@@ -134,6 +144,6 @@
                 ?>
         </table>
 	    
-	 <a href="arrayDemo.html";> Click here to return </a>
+    <a href="arrayDemo.html";> Click here to return </a>
 </body>
 </html>
