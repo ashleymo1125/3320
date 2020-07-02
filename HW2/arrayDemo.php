@@ -73,16 +73,38 @@
                 $number = $d[$i][$j];
                 $sum = $sum + number_format($number, 3);
                 $average = $sum / $columns;
-                $FD = $number - $average;
+              /*  $FD = $number - $average;
                 $FD2 = pow($FD,2);
                 $FD3 = $FD3 + $FD2;
                 $Mos = (1 / $columns) * $FD3;
-                $SD = sqrt($Mos);
+                $SD = sqrt($Mos);*/
                     
                 /*SD equation looks scary so i will do later */
                 
                 
            }
+            
+            $theNum = 0;
+            $newNum = 0;
+            $powPow = 0;
+            $sumOfTheNum = 0;
+            $Mos = 0;
+            for($j = 0; $j < $columns; $j++)
+            {
+                
+                $theNum = $d[$i][$j];
+                
+                $newNum = $theNum - $average;
+                
+                $powPow = pow($newNum, 2);
+                
+                $sumOfTheNum = $sumOfTheNum + $powPow;
+                
+              
+            }
+            $Mos = ( 1 / $columns) * $sumOfTheNum;
+            
+            $SD = sqrt($Mos);
            
             /* displays the calculations */
                 
