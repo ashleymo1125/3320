@@ -7,9 +7,79 @@
 </head>
 
 <body>
-
-  
-
+<form>
+   <table>
+      <tr>
+      <th>
+         Title 
+      </th>
+      <th>
+         Description
+      </th>
+      <th>
+         Release Year
+      </th>
+      <th>
+         Language ID
+      </th>
+      <th>
+         Rental Duration
+      </th>
+      <th>
+         Rental Rate
+      </th>
+      <th>
+         Length
+      </th>
+      <th>
+         Replacement Cost
+      </th>
+       <th>
+         Ratings
+      </th>
+      <th>
+          Special Features
+      </th>
+      </tr>
+      <tr>
+        <!-- Title -->
+         <th><input type = "string" size = "20" name = "lastName"></th>
+        <!-- Description -->
+        <th><input type = "string" size = "20" name = "firstName"></th>
+        <!-- Language ID -->
+        <th><input type = "tel" size = "12" name = "phoneNumber"></th>
+        <!-- Rental Duration -->
+        <th><input type = "string" size = "30" name = "emailAddress"></th>
+          <th><input type = "string" size = "20" name = "lastName"></th>
+        <!-- Rental Rate -->
+        <th><input type = "string" size = "20" name = "firstName"></th>
+        <!-- Length -->
+        <th><input type = "tel" size = "12" name = "phoneNumber"></th>
+        <!-- Replacement Cost -->
+        <th><input type = "string" size = "30" name = "emailAddress"></th>
+         
+        <!-- Ratings -->
+        <th> <select name = "rating">
+               <option value = "G"> G </option>
+               <option value = "PG">PG</option>
+               <option value = "PG-13">PG-13</option>
+               <option value = "R">R</option>
+               <option value = "NC-17">NC-17</option>
+             </select></th>
+        <!-- Special Features -->
+        <th><select name = "rating">
+               <option value = "Trailers"> Trailers </option>
+               <option value = "Commentaries">Commentaries</option>
+               <option value = "Deleted Scenes">Deleted Scenes</option>
+               <option value = "Behind the Scenes">Behind the Scenes</option>
+             </select></th>
+      </tr>
+      
+   </table>
+    
+    <input type = "submit" value = "Save"> 
+   <button type = "reset"> clear </button>
+</form>
   <script src="js/script.js"></script>
 </body>
 
