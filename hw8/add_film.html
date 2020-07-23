@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<form>
+<form action = "add_film.php" method = "post">
    <table>
       <tr>
       <th>
@@ -43,35 +43,35 @@
       </tr>
       <tr>
         <!-- Title -->
-         <th><input type = "string" size = "20" name = "lastName"></th>
+         <th><input type = "string" size = "20" name = "title"></th>
         <!-- Description -->
-        <th><input type = "string" size = "20" name = "firstName"></th>
+        <th><input type = "string" size = "20" name = "description"></th>
+          <!--Realease Year-->
+          <th><input type = "year" size = "30" name = "releaseYear"></th>
         <!-- Language ID -->
-        <th><input type = "tel" size = "12" name = "phoneNumber"></th>
+        <th><input type = "number" size = "12" name = "languageId"></th>
         <!-- Rental Duration -->
-        <th><input type = "string" size = "30" name = "emailAddress"></th>
-          <th><input type = "string" size = "20" name = "lastName"></th>
-        <!-- Rental Rate -->
-        <th><input type = "string" size = "20" name = "firstName"></th>
+        <th><input type = "number" size = "30" name = "rentalDuration"></th>
+            <!-- Rental Rate -->
+          <th><input type = "decimal" size = "20" name = "rentalRate"></th>
         <!-- Length -->
-        <th><input type = "tel" size = "12" name = "phoneNumber"></th>
-        <!-- Replacement Cost -->
-        <th><input type = "string" size = "30" name = "emailAddress"></th>
-         
-        <!-- Ratings -->
-        <th> <select name = "rating">
-               <option value = "G"> G </option>
-               <option value = "PG">PG</option>
-               <option value = "PG-13">PG-13</option>
-               <option value = "R">R</option>
-               <option value = "NC-17">NC-17</option>
-             </select></th>
-        <!-- Special Features -->
+        <th><input type = "number" size = "20" name = "length"></th>
+        <!-- replacement cost -->
+        <th><input type = "decimal" size = "12" name = "replacementCost"></th>
+          <!-- Ratings -->
         <th><select name = "rating">
-               <option value = "Trailers"> Trailers </option>
-               <option value = "Commentaries">Commentaries</option>
-               <option value = "Deleted Scenes">Deleted Scenes</option>
-               <option value = "Behind the Scenes">Behind the Scenes</option>
+               <option value = "G" name = "rating"> G </option>
+               <option value = "PG" name = "rating">PG</option>
+               <option value = "PG-13" name = "rating">PG-13</option>
+               <option value = "R" name = "rating">R</option>
+               <option value = "NC-17" name = "rating">NC-17</option>
+            </select></th>
+        <!-- Special Features -->
+        <th><select name = "specialFeatures">
+               <option value = "Trailers" name = "specialFeatures"> Trailers </option>
+               <option value = "Commentaries" name = "specialFeatures">Commentaries</option>
+               <option value = "Deleted Scenes" name = "specialFeatures">Deleted Scenes</option>
+               <option value = "Behind the Scenes" name = "specialFeatures">Behind the Scenes</option>
              </select></th>
       </tr>
       
