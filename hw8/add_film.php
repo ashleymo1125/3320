@@ -4,50 +4,49 @@ error_reporting(error_reporting() & ~E_NOTICE);
 error_reporting(E_ERROR | E_PARSE);
 // removing warning and notice messages. This is from stack overflow
 
-		$title   = $_POST['title'];
-		$description = $_POST['description'];
-		$releaseYear   = $_POST['releaseYear'];
-		$languageId  = $_POST['languageId'];
-        $rentalDuration  = $_POST['rentalDuration'];
-        $rentalRate  = $_POST['rentalRate'];
-        $length  = $_POST['length'];
-        $replacementCost  = $_POST['replacementCost'];
-        $rating  = $_POST['rating'];
-        $specialFeatures  = $_POST['specialFeatures'];
-
-
-    $db = mysqli_connect('localhost','root','');
+ $db = mysqli_connect('localhost','root','');
     mysqli_select_db($db ,'sakila');
 
-        $title2   = "'".$title."'";
-		$description2 = "'".$description."'";
-		$releaseYear2   = "'".$releaseYear."'";
-		$languageId2  = "'".$languageId."'";
-        $rentalDuration2 = "'".$rentalDuration."'";
-        $rentalRate2  = "'".$rentalRate."'";
-        $length2  = "'".$length."'";
-        $replacementCost2  = "'".$replacementCost."'";
-        $rating2  = "'".$rating."'";
-        $specialFeatures2  = "'".$specialFeatures."'";
 
-$query = "INSERT INTO sakila.film (title,description,release_year,language_id,rental_duration,rental_rate,length,replacement_cost,rating,special_features) VALUES ($title2,$description2,$releaseYear2,$languageId2,$rentalDuration2,$rentalRate2,$length2,$replacementCost2,$rating2,$specialFeatures2);";
-
+		$title   = mysqli_real_escape_string($db, $_POST['title'] );
+		$description = mysqli_real_escape_string($db,$_POST['description']);
+		$releaseYear   = mysqli_real_escape_string($db, $_POST['releaseYear']);
+		$languageId  = mysqli_real_escape_string($db, $_POST['languageId']);
+        $rentalDuration  = mysqli_real_escape_string($db, $_POST['rentalDuration']);
+        $rentalRate  = mysqli_real_escape_string($db, $_POST['rentalRate']);
+        $length  = mysqli_real_escape_string($db, $_POST['length']);
+        $replacementCost  = mysqli_real_escape_string($db,$_POST['replacementCost']);
+        $rating  = mysqli_real_escape_string($db,$_POST['rating']);
+        $specialFeatures  = mysqli_real_escape_string($db,$_POST['specialFeatures']);
 
 
 
+$sql = "INSERT INTO sakila.film (title,description,release_year,language_id,rental_duration,rental_rate,length,replacement_cost,rating,special_features) VALUES (?,?,?,?,?,?,?,?,?,?);";
 
-
-$results = mysqli_query($db, $query) or die(mysqli_error($db));
-
-if($results)
-{
-    echo "query succesful!";
-    echo "<a href = \" manager.html\">";
+$stmt = mysqli_stmt_init($db);
+if(!mysqli_stmt_prepare($stmt,$sql)){
+    echo "sql error";
+    echo "<a href = \" manager.html\"> Click Here to return to Manager's page </a>";
 }else
 {
-    echo "not successful";
-    echo "<a href=\" manager.html\">Link</a>";
+    echo "sql injection successful";
+    echo "<a href = \" manager.html\"> Click Here to return to Manager's page </a>";
+    mysqli_stmt_bind_param($stmt, "ssiiididss", $title, $description, $releaseYear, $languageId, $rentalDuration, $rentalRate, $length, $replacementCost, $rating, $specialFeatures);
+    mysqli_execute($stmt);
 }
+
+// https://www.youtube.com/watch?v=I4JYwRIjX6c
+// prepared statement inspired by video above
+
+
+if($db->connect_error) {
+  
+    exit('Error connecting to database'); 
+    // from website Schwab provided 
+}
+
+    
+
     
 
 ?>
